@@ -7,13 +7,13 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Guess the number</title>
+        <title>NodeJs server Guess the number</title>
 
     </head>
 
     <body>
 
-        <h1>NodeJs server</h1>
+        <h1>Guess the number</h1>
         <h4>Select your number from 1 to 10 000.</h4>
         <form id="form">
             <input id="input" type="number">
@@ -32,9 +32,13 @@
 
     </body>
 
+    <!-- skrypt websocket.io -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+
     <script>
 
         console.log('Hello');
+        const socket = io();
 
         const form = document.querySelector('#form'),
 			input = form.querySelector('#input'),
@@ -43,8 +47,19 @@
 
             form.addEventListener('submit', (event) => {
                 event.preventDefault();
-                console.log('yay');
+
+                input.value && socket.emit('selectedNumber', input.value);
+
+                input.value = '';
             });
+
+            socket.on('textInfo', (data) => {
+    			infoEl.innerHTML = data;
+    		});
+
+            socket.on('usedNumbers', (data) => {
+    			usedNumbersEl.innerHTML = data.join(', ');
+    		});
 
 
     </script>
