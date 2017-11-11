@@ -22,7 +22,7 @@
 
         <div>
             <h4 style="display: inline">Tip:</h4>
-            <p style="display: inline" id="info">ss</p>
+            <p style="display: inline" id="info"></p>
         </div>
 
         <div>
@@ -31,5 +31,22 @@
         </div>
 
     </body>
+
+    <script>
+
+        console.log('Hello');
+
+        const form = document.querySelector('#form'),
+			input = form.querySelector('#input'),
+			usedNumbersEl = document.querySelector('#used-numbers'),
+			infoEl = document.querySelector('#info');
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                console.log('yay');
+            });
+
+
+    </script>
 
 </html>
