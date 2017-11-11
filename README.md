@@ -1,2 +1,2 @@
 # ArdentCode-Guess-the-number
-Guess the number app. 
+Guess the number app for ArdentCode
