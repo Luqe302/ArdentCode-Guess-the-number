@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
 		} else if(selectedNumber < randomNumber) {
 			socket.emit('textInfo', 'Your number is too low.')
 		} else {
-			socket.emit('textInfo', 'Your number ' + selectedNumber + ' is correct.')
+			socket.emit('textInfo', `Your number ${selectedNumber} is correct.`)
 		}
 
 		usedNumbers.push(selectedNumber);
